@@ -1,4 +1,6 @@
 # PDSEC25-artifacts
+[![DOI](https://zenodo.org/badge/946292613.svg)](https://doi.org/10.5281/zenodo.15003097)
+
 A repository with the data and script for creating the artifacts for the PDSEC25 paper "Embracing Load Imbalance for Energy Optimizations: a Case-Study"
 
 The results in this repostiry are obtained by running [HemoCell](hemocell.eu) with benchnmarks from [github.com/UvaCsl/Hemocell-Performance-Benchmarks](github.com/UvaCsl/Hemocell-Performance-Benchmarks) on the Distruted ASCII Supercomputer [DAS6](https://www.cs.vu.nl/das/)
