@@ -1,0 +1,113 @@
+#!/bin/bash
+
+#SBATCH -t 00:15:00
+#SBATCH --output=results/%J.out
+#SBATCH --error=results/%J.err
+#SBATCH --exclude=node015
+
+tmpdir=/var/scratch/jvandijk/$SLURM_JOB_ID
+mkdir -p $tmpdir
+echo $tmpdir
+
+hemocell=/home/jvandijk/HemoCell-mpi-2
+#hemocell=/home/jvandijk/HemoCell-dev
+results=$(pwd)/results/${SLURM_JOB_ID}
+module restore mpi2-hemocell
+module load likwid
+#module restore hemocell
+module list
+
+mkdir -p $results
+
+export SCOREP_ENABLE_TRACING=false
+export SCOREP_ENABLE_PROFILING=true
+export SCOREP_FILTERING_FILE=$tmpdir/filter.filter
+export SCOREP_EXPERIMENT_DIRECTORY=$results/SCOREP
+
+config=$1
+benchmark=$2
+setupdir=$3
+
+echo "config $1"
+echo "benchmark $2"
+echo "setupdir $3"
+
+set_freq () {
+	local file=freq.txt
+	local nodes=($(scontrol show hostname $SLURM_JOB_NODELIST))
+
+	echo "Resetting all freq"
+	srun --ntasks=${SLURM_NNODES} --distribution=cyclic likwid-setFrequencies -reset
+
+	# Check if the file exists
+	if [[ ! -f "$file" ]]; then
+		echo "No freq file set, keeping default"
+		return
+	fi
+
+	# Read the first line separately
+	read -r first_line < "$file"
+	freq=$(echo "$first_line" | awk '{print $1}')
+	srun --ntasks=${SLURM_NNODES} --distribution=cyclic likwid-setFrequencies -f $freq
+	echo "Setting all freq to: $freq"
+
+	# Process the rest of the lines
+
+	mapfile -t lines < <(tail -n +2 "$file")
+
+	for line in "${lines[@]}"; do
+		nodeid=$(echo "$line" | awk '{print $1}')
+		freq=$(echo "$line" | awk '{print $2}')
+		cs=$(echo "$line" | awk '{print $3}')
+		if [ -z "$cs" ]; then
+		    cs="0-47"
+		fi
+
+		(srun --ntasks=1 --nodelist=${nodes[$nodeid]} likwid-setFrequencies -f $freq -c $cs)
+		echo "Node: $nodeid, freq: $freq, c: $cs"
+	done
+}
+
+
+configFile=$(basename ${config})
+
+files=(${setupdir}/${config} ${setupdir}/RBC.xml ${setupdir}/stent.stl ${setupdir}/RBC.pos ${setupdir}/PLT.pos ${setupdir}/PLT.xml ${setupdir}/filter.filter ${setupdir}/freq.txt ${hemocell}/Hemocell-Performance-Benchmarks/${benchmark}/${benchmark})
+
+for file in "${files[@]}"; do
+	echo $file
+	cp $file $tmpdir/
+done
+
+cd $tmpdir
+
+
+set_freq
+
+echo "Starting Hemocell: $(date +'%R')"
+
+mpirun likwid-perfctr -g ENERGY -O -o likwid_perfctr_%h_%r.txt ./${benchmark} ${configFile}
+
+echo "Hemocell Finished: $(date +'%R')"
+
+python3 $hemocell/Hemocell-Performance-Benchmarks/scripts/generate-meta-data-yaml.py -m scorep -b $4 -i $SLURM_JOB_ID -p das6 ${hemocell} ${hemocell}/Hemocell-Performance-Benchmarks/${benchmark} 
+
+for f in likwid_perfctr*; do
+    filename=$(basename -- "$f")
+    filename="${filename%.*}" 
+    A=$(echo $filename | awk -F_ '{print $4}' )
+
+    if [[ $(( $A % $SLURM_NTASKS_PER_NODE )) == 0 ]]; then
+        echo Keep $f
+    else
+        rm $f
+    fi
+
+done
+
+srun --ntasks=${SLURM_NNODES} --distribution=cyclic likwid-setFrequencies -p
+srun --ntasks=${SLURM_NNODES} --distribution=cyclic likwid-setFrequencies -reset
+
+mv $results/../*$SLURM_JOB_ID.err ${results}/output_$SLURM_JOB_ID.err
+mv $results/../*$SLURM_JOB_ID.out ${results}/output_$SLURM_JOB_ID.out
+rm $tmpdir/${benchmark}
+mv $tmpdir/* $results/

@@ -1,0 +1,8 @@
+Benchmark: {Git_commit: 4751b0e988e9f52e683bbfb559151aa06ae26861, Git_origin: 'git@github.com:UvaCsl/Hemocell-Performance-Benchmarks.git',
+  cube-version: 1.1.1, name: Cube-fractional, version: 0.3}
+Ear: {Policy: monitoring}
+General: {Benchmark: case-particled-energy-3, Date: '2025-01-29 20:12', Id: '1143913',
+  Monitor-tool: scorep, Node_list: 'node[002,004,011-014,016-019,022-023,025,031,033-034]',
+  Nodes: '16', Platform: das6, Tasks: '384'}
+Hemocell: {Git_commit: eb8da2280b15b8d1992a5b0296cc1e66bd26f4b6, Git_origin: 'git@github.com:UvaCsl/HemoCell-dev.git',
+  Version: v2.6}

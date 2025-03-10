@@ -1,0 +1,43 @@
+
+Estimated aggregate size of event trace:                   3035MB
+Estimated requirements for largest trace buffer (max_buf): 12MB
+Estimated memory requirements (SCOREP_TOTAL_MEMORY):       14MB
+(hint: When tracing set SCOREP_TOTAL_MEMORY=14MB to avoid intermediate flushes
+ or reduce requirements using USR regions filters.)
+
+flt     type max_buf[B]     visits   time[s] time[%]   time/visit[us]  region
+         ALL 11,707,539 58,487,348 111515.45   100.0          1906.66  ALL
+         MPI 11,575,930 56,381,876  68442.06    61.4          1213.90  MPI
+         USR     95,496  1,527,936  35530.86    31.9         23254.16  USR
+         COM     36,072    577,152   7184.56     6.4         12448.29  COM
+      SCOREP         41        384    357.98     0.3        932229.36  SCOREP
+
+         MPI  4,791,873 14,882,259    228.40     0.2            15.35  MPI_Isend
+         MPI  3,622,419 11,213,627    352.37     0.3            31.42  MPI_Irecv
+         MPI  1,010,520 11,341,355  24213.81    21.7          2135.00  MPI_Wait
+         MPI    793,078  3,668,632    213.15     0.2            58.10  MPI_Recv
+         MPI    698,736  7,851,683  23586.19    21.2          3003.97  MPI_Waitany
+         MPI    624,000  7,096,000  17087.21    15.3          2408.01  MPI_Probe
+         MPI     14,520     84,480      1.48     0.0            17.48  MPI_Bcast
+         COM     12,072    193,152   6802.62     6.1         35218.99  void hemo::HemoCellFields::syncEnvelopes()
+         COM     12,000    192,000    375.56     0.3          1956.04  void plb::MultiBlockLattice3D<T, Descriptor>::collideAndStream() [with T = double; Descriptor = plb::descriptors::ForcedD3Q19Descriptor]
+         USR     12,000    192,000  10692.25     9.6         55688.82  void plb::MultiBlockLattice3D<T, Descriptor>::collideAndStreamImplementation() [with T = double; Descriptor = plb::descriptors::ForcedD3Q19Descriptor]
+         MPI     12,000    192,000   1435.42     1.3          7476.12  MPI_Waitall
+         COM     12,000    192,000      6.38     0.0            33.23  void hemo::HemoCell::iterate()
+         USR     12,000    192,000   5285.54     4.7         27528.87  void hemo::HemoCellFields::spreadParticleForce()
+         USR     12,000    192,000   5022.53     4.5         26158.99  void hemo::HemoCellFields::interpolateFluidVelocity()
+         USR     12,000    192,000   1241.51     1.1          6466.21  void hemo::HemoCellFields::advanceParticles()
+         USR     12,000    192,000  12085.19    10.8         62943.69  void hemo::HemoCellFields::applyConstitutiveModel(bool)
+         USR     12,000    192,000    799.89     0.7          4166.09  void hemo::HemoCellFields::deleteNonLocalParticles(int)
+         USR     12,000    192,000    403.85     0.4          2103.41  void plb::setExternalVector(plb::MultiBlockLattice3D<T, Descriptor>&, plb::Box3D, int, plb::Array<T, Descriptor<T>::d>) [with T = double; Descriptor = plb::descriptors::ForcedD3Q19Descriptor]
+         MPI      8,580     49,920    225.94     0.2          4526.01  MPI_Barrier
+         USR      4,488     71,808      0.05     0.0             0.67  char* tinyxml2::XMLDocument::Identify(char*, tinyxml2::XMLNode**)
+         USR      2,592     41,472      0.02     0.0             0.44  char* tinyxml2::StrPair::ParseName(char*)
+         USR      2,592     41,472      0.01     0.0             0.32  char* tinyxml2::XMLElement::ParseAttributes(char*, int*)
+         USR      1,824     29,184      0.01     0.0             0.49  char* tinyxml2::StrPair::ParseText(char*, const char*, int, int*)
+         MPI         66        384    544.84     0.5       1418860.51  MPI_Allgather
+         MPI         66        384      0.07     0.0           193.50  MPI_Allgatherv
+      SCOREP         41        384    357.98     0.3        932229.36  cube-fractional-imbalance
+         MPI         24        384      0.00     0.0             5.14  MPI_Comm_rank
+         MPI         24        384      0.00     0.0             2.38  MPI_Comm_size
+         MPI         24        384    553.18     0.5       1440576.91  MPI_Init

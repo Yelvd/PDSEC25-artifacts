@@ -1,0 +1,977 @@
+/var/scratch/jvandijk/1143935
+
+Currently Loaded Modules:
+  1) cmake/3.21.3   5) libfabric/1.13.0   9) papi/5.7.0
+  2) gnu9/9.4.0     6) mpich/3.4.2-ofi   10) scorep/6.0
+  3) gcc/default    7) pdtoolkit/3.25.1  11) scalasca/2.5
+  4) hdf5/1.10.8    8) sionlib/1.7.4     12) likwid/5.0.1
+
+ 
+
+config config.xml
+benchmark cube-fractional-imbalance
+setupdir setups/case-fluid-energy-43346
+setups/case-fluid-energy-43346/config.xml
+setups/case-fluid-energy-43346/RBC.xml
+setups/case-fluid-energy-43346/stent.stl
+setups/case-fluid-energy-43346/RBC.pos
+setups/case-fluid-energy-43346/PLT.pos
+setups/case-fluid-energy-43346/PLT.xml
+setups/case-fluid-energy-43346/filter.filter
+setups/case-fluid-energy-43346/freq.txt
+/home/jvandijk/HemoCell-mpi-2/Hemocell-Performance-Benchmarks/cube-fractional-imbalance/cube-fractional-imbalance
+Resetting all freq
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Setting all freq to: 2.4
+Node: 0, freq: 2.8, c: 0-47
+Node: 1, freq: 2.8, c: 0-47
+Starting Hemocell: 21:24
+(HemoCell) (Config) reading config.xml
+ _   _   ____   __  __   _____    ___   ____   __     __ 
+( )_( ) ( ___) (  \/  ) (  _  )  / __) ( ___) (  )   (  )
+ ) _ (   )__)   )    (   )(_)(  ( (__   )__)   )(__   )(__ 
+(_) (_) (____) (_/\/\_) (_____)  \___) (____) (____) (____) 
+                         v.2.6
+
+(unbounded) (Parameters) calculating flow parameters
+(HemoCell) dt is set to *auto*. Tau will be set to 1!
+(HemoCell) System parameters:
+	 dx: 	5e-07
+	 dt: 	3.78788e-08
+	 dm: 	1.28125e-16
+	 dN: 	4.4649e-08
+	 tau: 	1
+	 nu_lbm: 	0.166667
+	 u_lb_max: 	7.57576e-07
+	 f_limit: 	0.00111985
+(unbounded) (Fluid) Initializing Palabos Fluid Field
+nx 600
+nr 12
+nSizeX: 150
+flifluid: 2
+(HemoCell) (Fluid) Setting Fluid Equilibrium
+Size of the multi-block:     600-by-400-by-200
+Number of atomic-blocks:     384
+Smallest atomic-block:       40-by-50-by-50
+Largest atomic-block:        150-by-50-by-50
+Number of allocated cells:   48 million
+Fraction of allocated domain: 100 percent
+
+(Hemocell) (HemoCellFields) (Init) particle envelope: 25 [lu]
+Cellfield  (+ material model) of RBC
+  Volume :90 µm³ VolumeFraction of lsp per fluid node: 1.1215 %
+  Nvertex: 642
+(Cell-mechanics model) High Order model parameters for RBC cellfield
+	 k_link:   0.000183679
+	 k_area:   9.18393e-07
+	 k_bend: : 1.46943e-05
+	 k_volume: 3.67357e-06
+	 eta_m:    0
+	 mean_edge:1.00019
+	 N faces:  1280
+(HemoCell) (Timescale Seperation) Setting seperation of RBC to 1 timesteps
+(HemoCell) (Timescale separation) Setting update separation of all particles to 1 timesteps
+(HemoCell) (CellField) Setting output variables for RBC cells
+(HemoCell) (Fluid) Setting output variables for fluid field
+(HemoCell) (CellField) Loading particle positions 
+(readPositionsBloodCells) Reading particle positions...
+(readPositionsBloodCells) Particle count in file (RBC): 24608.
+(unbounded) fresh start: warming up cell-free fluid domain for 0 iterations...
+(unbounded) Starting simulation...
+ | RBC Volume ratio [x100%]: 3.94753
+(main)   nCells (global) = 24608
+(HemoCell) (SanityCheck) Performing Sanity check on simulation parameters and setup
+(HemoCell) WARNING: Force limit active at 50 pN. Results can be inaccurate due to force capping.
+Size of the multi-block:     600-by-400-by-200
+Number of atomic-blocks:     384
+Smallest atomic-block:       40-by-50-by-50
+Largest atomic-block:        150-by-50-by-50
+Number of allocated cells:   48 million
+Fraction of allocated domain: 100 percent
+(SanityCheck) one of the dimensions of the largest atomic block is more than 25.
+  This can be inefficient. The best performance is below 26x26x26 blocks.
+  It is recommended to adjust the number of processors or the sparseBlockStructure accordingly.
+Hemocell Profiler Statistics (Only Process 0):
+HemoCell: 237.726000
+ MpiReceive: 0.000000
+ MpiSend: 0.000000
+ deleteIncompleteCells: 0.071000
+ iterate: 234.115000
+  advanceParticles: 9.010000
+  applyConstitutiveModel: 45.955000
+  collideAndStream: 91.401000
+  deleteNonLocalParticles: 2.982000
+  interpolateFluidVelocity: 19.661000
+  setExternalVector: 2.190000
+  spreadParticleForce: 17.018000
+  syncEnvelopes: 45.877000
+   MpiReceive: 7.921000
+   MpiSend: 1.823000
+ syncEnvelopes: 1.801000
+  MpiReceive: 0.179000
+  MpiSend: 0.016000
+(main) Simulation finished :) 
+Hemocell Finished: 21:28
+Keep likwid_perfctr_node002_0.txt
+Keep likwid_perfctr_node004_24.txt
+Keep likwid_perfctr_node011_48.txt
+Keep likwid_perfctr_node012_72.txt
+Keep likwid_perfctr_node013_96.txt
+Keep likwid_perfctr_node014_120.txt
+Keep likwid_perfctr_node016_144.txt
+Keep likwid_perfctr_node017_168.txt
+Keep likwid_perfctr_node018_192.txt
+Keep likwid_perfctr_node019_216.txt
+Keep likwid_perfctr_node022_240.txt
+Keep likwid_perfctr_node023_264.txt
+Keep likwid_perfctr_node025_288.txt
+Keep likwid_perfctr_node031_312.txt
+Keep likwid_perfctr_node033_336.txt
+Keep likwid_perfctr_node034_360.txt
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.8/1.796421/2.8 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.8/1.794921/2.8 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.8/1.794007/2.8 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.8/1.794453/2.8 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.8/1.796318/2.8 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.8/1.795544/2.8 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.8/1.794467/2.8 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.8/1.795115/2.8 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.8/1.795277/2.8 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.8/1.796473/2.8 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.8/1.794148/2.8 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.8/1.793867/2.8 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.8/1.795519/2.8 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.8/1.794526/2.8 GHz Turbo 0
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.79675/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.79514/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.79487/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.795796/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.79656/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.789038/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.794975/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.796331/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.795639/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.794495/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.796473/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.796214/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.795958/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.794627/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.79639/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.796476/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.796821/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.792372/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.794728/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.794446/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.794859/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.79459/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.794321/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.794494/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.79468/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.794945/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.796096/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.793541/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.796209/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.796199/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.795428/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.795014/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.796052/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.79528/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.795522/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.796324/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.7956/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.796476/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.795801/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.793441/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.7951/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.796341/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.794839/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.795776/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.796129/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.79556/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.796278/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.796256/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.794209/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.795637/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.795556/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.796558/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.796088/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.794596/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.796858/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.793793/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.796059/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.796114/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.795604/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.79595/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.79589/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.794908/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.793834/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.795015/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.794088/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.796902/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.79547/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.794866/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.795985/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.796606/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.795518/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.793834/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.794443/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.794789/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.795136/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.793303/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.794309/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.796725/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.794478/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.796229/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.793647/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.796508/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.794466/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.794517/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.795467/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.79494/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.796066/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.796539/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.794879/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.796122/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.795801/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.795845/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.79646/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.795345/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.794725/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.796394/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.795633/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.796062/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.797455/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.79691/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.793454/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.79624/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.79526/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.794466/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.795934/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.794039/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.795711/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.795362/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.795802/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.790866/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.796833/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.794284/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.796303/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.644734/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.796398/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.79429/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.795158/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.795044/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.795136/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.636163/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.794576/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.794169/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.796267/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.795784/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.795505/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.79447/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.794692/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.796132/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.796133/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.79655/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.794036/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.794644/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.798611/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.793725/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.796093/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.79665/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.795708/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.796344/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.796647/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.794855/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.795182/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.794876/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.796856/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.793679/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.795932/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.794938/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.796284/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.795996/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.795662/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.796524/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.796368/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.796367/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.79447/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.795369/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.792152/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.79527/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.795855/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.795844/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.795662/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.793122/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.796544/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.79576/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.795147/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.795583/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.795028/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.793483/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.797035/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.79703/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.797153/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.796714/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.796217/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.796294/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.796162/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.796708/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.79613/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.795331/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.793953/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.793784/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.796464/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.792729/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.794373/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.795173/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.796308/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.797427/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.793765/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.796326/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.79474/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.794103/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.795908/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.794574/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.793833/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.795622/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.795568/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.794431/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.796501/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.797054/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.794085/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.794418/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.794433/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.796157/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.795354/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.79589/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.795022/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.796687/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.795332/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.796295/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.794729/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.795258/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.794836/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.796148/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.79626/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.796138/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.794572/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.793477/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.794225/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.797227/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.796762/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.796503/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.795811/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.796746/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.794468/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.796422/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.795705/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.796677/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.796443/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.79278/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.79523/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.796452/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.795974/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.794421/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.796524/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.796849/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.795121/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.796542/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.794422/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.796582/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.796491/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.79597/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.79455/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.796345/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.795841/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.795551/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.796031/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.796562/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.79503/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.795678/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.796598/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.796475/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.794806/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.794294/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.796297/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.7943/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.794081/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.793719/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.796103/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.795837/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.796466/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.795418/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.795668/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.79523/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.796298/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.793975/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.795474/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.792759/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.793729/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.796134/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.796425/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.794287/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.795013/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.795432/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.794221/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.795448/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.796272/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.795747/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.794795/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.796189/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.794011/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.796123/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.796351/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.794822/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.795525/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.79625/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.796373/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.795076/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.796522/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.793375/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.793616/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.796283/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.795259/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.794288/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.79439/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.794815/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.795898/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.796453/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.795015/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.796583/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.79546/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.794494/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.795486/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.796034/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.79588/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.796668/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.79631/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.794931/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.795628/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.794644/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.79589/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.796495/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.795608/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.79437/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.792934/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.792414/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.795737/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.796062/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.796504/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.795916/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.796542/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.795322/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.794571/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.793466/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.796371/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.794857/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.797507/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.794407/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.794564/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.795735/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.795752/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.794796/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.796412/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.794306/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.795411/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.796758/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.796254/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.79503/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.795142/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.796169/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.794702/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.794801/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.794647/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.796/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.795789/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.795194/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.793422/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.795244/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.794749/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.795915/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.796697/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.795848/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.795727/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.793629/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.795158/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.795788/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.795578/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.79565/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.79525/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.795614/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.795421/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.794748/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.797315/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.79208/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.795337/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.796014/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.796077/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.795577/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.793801/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.796196/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.79421/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.792675/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.791142/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.795136/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.796944/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.796296/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.7953/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.795926/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.792993/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.794027/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.796175/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.796448/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.795974/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.795345/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.792539/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.792565/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.794959/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.794872/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.795685/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.79553/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.796961/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.79459/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.796252/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.796011/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.796333/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.795899/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.793104/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.796386/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.796244/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.795481/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.795887/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.794136/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.794488/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.796051/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.796777/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.795135/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.794924/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.795809/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.795868/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.794359/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.796303/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.795963/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.795181/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.628995/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.642959/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.796079/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.792711/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.796564/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.79658/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.796256/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.796312/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.796771/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.794298/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.795237/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.796251/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.794671/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.796123/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.796227/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.794632/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.793816/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.796333/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.795403/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.796506/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.796487/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.796123/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.794268/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.8/1.794425/2.8 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.8/1.791329/2.8 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.8/1.793812/2.8 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.8/1.795849/2.8 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.8/1.796918/2.8 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.8/1.795102/2.8 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.8/1.795939/2.8 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.8/1.797083/2.8 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.8/1.793982/2.8 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.8/1.795066/2.8 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.8/1.796603/2.8 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.8/1.794495/2.8 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.8/1.794797/2.8 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.8/1.794374/2.8 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.8/1.79382/2.8 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.8/1.796908/2.8 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.8/1.794839/2.8 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.8/1.795492/2.8 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.8/1.795485/2.8 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.8/1.796122/2.8 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.8/1.796382/2.8 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.8/1.795223/2.8 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.8/1.7956/2.8 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.8/1.796342/2.8 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.8/1.795714/2.8 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.8/1.795571/2.8 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.8/1.795972/2.8 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.8/1.793762/2.8 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.8/1.795306/2.8 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.8/1.78847/2.8 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.8/1.794745/2.8 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.8/1.793767/2.8 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.8/1.796326/2.8 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.8/1.794907/2.8 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.8/1.795029/2.8 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.8/1.796194/2.8 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.8/1.796645/2.8 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.8/1.795877/2.8 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.8/1.795169/2.8 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.8/1.797947/2.8 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.8/1.794229/2.8 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.8/1.796491/2.8 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.8/1.795259/2.8 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.8/1.795306/2.8 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.8/1.796417/2.8 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.8/1.792607/2.8 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.8/1.795536/2.8 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.8/1.796376/2.8 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.797465/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.793139/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.79566/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.796095/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.795678/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.796985/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.796649/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.794507/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.794012/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.79505/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.794371/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.793538/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.795287/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.794713/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.796026/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.794145/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.792869/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.794464/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.794837/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.795402/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.797088/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.795139/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.795337/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.795825/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.795943/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.79476/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.796313/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.796262/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.794212/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.793898/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.794842/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.796223/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.796427/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.793607/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.794776/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.795986/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.795184/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.797223/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.796062/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.794498/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.794232/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.796449/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.793265/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.79462/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.79643/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.796785/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.792409/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.795133/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+CPU 14: governor  performance min/cur/max 2.8/1.792874/2.8 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.8/1.794898/2.8 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.8/1.795624/2.8 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.8/1.796317/2.8 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.8/1.795616/2.8 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.8/1.796211/2.8 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.8/1.795423/2.8 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.8/1.794377/2.8 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.8/1.795335/2.8 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.8/1.794773/2.8 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.8/1.794162/2.8 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.8/1.794086/2.8 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.8/1.795648/2.8 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.8/1.7939/2.8 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.8/1.794667/2.8 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.8/1.796044/2.8 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.8/1.796012/2.8 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.8/1.79415/2.8 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.8/1.796226/2.8 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.8/1.79744/2.8 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.8/1.794535/2.8 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.8/1.796361/2.8 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.8/1.796746/2.8 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.8/1.793633/2.8 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.8/1.796195/2.8 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.8/1.793476/2.8 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.8/1.796315/2.8 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.8/1.795918/2.8 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.8/1.794967/2.8 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.8/1.795969/2.8 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.8/1.795924/2.8 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.8/1.793497/2.8 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.8/1.793408/2.8 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.8/1.796124/2.8 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.796683/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.795201/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.793192/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.795746/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.795518/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.797837/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.794025/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.795486/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.795885/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.797396/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.796555/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.794416/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.794998/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.796067/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.793858/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.796141/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.797736/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.795462/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.794924/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.796504/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.792527/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.794581/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.793039/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.796339/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.796045/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.796083/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.795238/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.79492/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.794868/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.796441/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.794739/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.795636/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.794391/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.796231/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.796081/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.796169/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.794661/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.795033/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.796166/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.795084/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.796858/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.796205/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.79502/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.795126/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.796295/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.794967/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.796788/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.796285/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.794713/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.794772/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.795518/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.795767/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.795919/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.798104/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.794885/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.793218/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.794617/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.794885/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.797238/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.796982/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.796625/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.795735/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.795654/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.794395/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.796275/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.795641/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.794275/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.796181/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.79654/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.793367/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.794967/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.796673/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.794822/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.795038/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.795371/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.79464/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.796198/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.79635/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.794265/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.79654/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.794265/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.796247/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.795983/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.79603/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.795455/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.792972/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.79618/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.794077/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.795234/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.7963/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.796342/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.794506/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.796184/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.793722/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.795935/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.796194/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.793586/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.796263/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.793866/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.796692/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.796465/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.796098/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.796547/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.79483/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.79666/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.795524/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.796264/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.792155/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.797414/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.796963/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.794078/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.795402/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.795488/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.794589/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.795836/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.79311/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.797145/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.794437/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.794637/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.795766/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.796263/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.796282/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.794932/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.794888/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.795551/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.794816/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.796/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.795862/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.79464/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.794815/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.796099/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.796316/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.795529/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.794952/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.796503/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.796787/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.795745/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.796349/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.794307/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.795232/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.795565/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.794994/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.792739/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.796314/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+Current CPU frequencies:
+CPU 0: governor  performance min/cur/max 2.4/1.795249/2.4 GHz Turbo 0
+CPU 1: governor  performance min/cur/max 2.4/1.797712/2.4 GHz Turbo 0
+CPU 2: governor  performance min/cur/max 2.4/1.79469/2.4 GHz Turbo 0
+CPU 3: governor  performance min/cur/max 2.4/1.796162/2.4 GHz Turbo 0
+CPU 4: governor  performance min/cur/max 2.4/1.792124/2.4 GHz Turbo 0
+CPU 5: governor  performance min/cur/max 2.4/1.796621/2.4 GHz Turbo 0
+CPU 6: governor  performance min/cur/max 2.4/1.796424/2.4 GHz Turbo 0
+CPU 7: governor  performance min/cur/max 2.4/1.795093/2.4 GHz Turbo 0
+CPU 8: governor  performance min/cur/max 2.4/1.796512/2.4 GHz Turbo 0
+CPU 9: governor  performance min/cur/max 2.4/1.79632/2.4 GHz Turbo 0
+CPU 10: governor  performance min/cur/max 2.4/1.795227/2.4 GHz Turbo 0
+CPU 11: governor  performance min/cur/max 2.4/1.795921/2.4 GHz Turbo 0
+CPU 12: governor  performance min/cur/max 2.4/1.795852/2.4 GHz Turbo 0
+CPU 13: governor  performance min/cur/max 2.4/1.794568/2.4 GHz Turbo 0
+CPU 14: governor  performance min/cur/max 2.4/1.793705/2.4 GHz Turbo 0
+CPU 15: governor  performance min/cur/max 2.4/1.795633/2.4 GHz Turbo 0
+CPU 16: governor  performance min/cur/max 2.4/1.79479/2.4 GHz Turbo 0
+CPU 17: governor  performance min/cur/max 2.4/1.796162/2.4 GHz Turbo 0
+CPU 18: governor  performance min/cur/max 2.4/1.795109/2.4 GHz Turbo 0
+CPU 19: governor  performance min/cur/max 2.4/1.794122/2.4 GHz Turbo 0
+CPU 20: governor  performance min/cur/max 2.4/1.794442/2.4 GHz Turbo 0
+CPU 21: governor  performance min/cur/max 2.4/1.79463/2.4 GHz Turbo 0
+CPU 22: governor  performance min/cur/max 2.4/1.793117/2.4 GHz Turbo 0
+CPU 23: governor  performance min/cur/max 2.4/1.789759/2.4 GHz Turbo 0
+CPU 24: governor  performance min/cur/max 2.4/1.795509/2.4 GHz Turbo 0
+CPU 25: governor  performance min/cur/max 2.4/1.794712/2.4 GHz Turbo 0
+CPU 26: governor  performance min/cur/max 2.4/1.79542/2.4 GHz Turbo 0
+CPU 27: governor  performance min/cur/max 2.4/1.796259/2.4 GHz Turbo 0
+CPU 28: governor  performance min/cur/max 2.4/1.793647/2.4 GHz Turbo 0
+CPU 29: governor  performance min/cur/max 2.4/1.796306/2.4 GHz Turbo 0
+CPU 30: governor  performance min/cur/max 2.4/1.794768/2.4 GHz Turbo 0
+CPU 31: governor  performance min/cur/max 2.4/1.795819/2.4 GHz Turbo 0
+CPU 32: governor  performance min/cur/max 2.4/1.796176/2.4 GHz Turbo 0
+CPU 33: governor  performance min/cur/max 2.4/1.798059/2.4 GHz Turbo 0
+CPU 34: governor  performance min/cur/max 2.4/1.795173/2.4 GHz Turbo 0
+CPU 35: governor  performance min/cur/max 2.4/1.796153/2.4 GHz Turbo 0
+CPU 36: governor  performance min/cur/max 2.4/1.796345/2.4 GHz Turbo 0
+CPU 37: governor  performance min/cur/max 2.4/1.79659/2.4 GHz Turbo 0
+CPU 38: governor  performance min/cur/max 2.4/1.796132/2.4 GHz Turbo 0
+CPU 39: governor  performance min/cur/max 2.4/1.794485/2.4 GHz Turbo 0
+CPU 40: governor  performance min/cur/max 2.4/1.794807/2.4 GHz Turbo 0
+CPU 41: governor  performance min/cur/max 2.4/1.796428/2.4 GHz Turbo 0
+CPU 42: governor  performance min/cur/max 2.4/1.794778/2.4 GHz Turbo 0
+CPU 43: governor  performance min/cur/max 2.4/1.796942/2.4 GHz Turbo 0
+CPU 44: governor  performance min/cur/max 2.4/1.796449/2.4 GHz Turbo 0
+CPU 45: governor  performance min/cur/max 2.4/1.795771/2.4 GHz Turbo 0
+CPU 46: governor  performance min/cur/max 2.4/1.797561/2.4 GHz Turbo 0
+CPU 47: governor  performance min/cur/max 2.4/1.796433/2.4 GHz Turbo 0
+
+No support for Uncore frequencies
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
+Reset to governor performance with min freq. 1.5 GHz and deactivate turbo mode
