@@ -35,10 +35,10 @@ figsize = (figsize[0], figsize[1])
 fig, (ax_t, ax_fli, ax_p) = plt.subplots(3, figsize=figsize, sharex=True)
 
 xs = [0,1,2,3,4,5]
-FLIpartes = [[],[]]
-Energy = [[],[]]
-exs = [[],[]]
-comps = [[],[]]
+FLIpartes = [[],[],[]]
+Energy = [[],[],[]]
+exs = [[],[],[]]
+comps = [[],[],[]]
 first = True
 size = 3
 
@@ -73,19 +73,27 @@ for ff in xs:
 
 
     Energy[0].append(np.mean(energy) / 1000)
-    Energy[1].append(np.std(energy) / 1000)
+    Energy[1].append((np.min(energy) / 1000))
+    Energy[2].append((np.max(energy) / 1000))
     FLIpartes[0].append(np.mean(tmp_fli))
-    FLIpartes[1].append(np.std(tmp_fli))
+    FLIpartes[1].append(np.min(tmp_fli))
+    FLIpartes[2].append(np.max(tmp_fli))
     exs[0].append(np.mean(tmp_df['execution']['max']))
-    exs[1].append(np.std(tmp_df['execution']['max']))
+    exs[1].append(np.min(tmp_df['execution']['max']))
+    exs[2].append(np.max(tmp_df['execution']['max']))
     comps[0].append(np.mean(tmp_df['comp']['max']))
-    comps[1].append(np.std(tmp_df['comp']['max']))
+    comps[1].append(np.min(tmp_df['comp']['max']))
+    comps[2].append(np.max(tmp_df['comp']['max']))
     
+Energy = [np.array(x) for x in Energy]
+FLIpartes = [np.array(x) for x in FLIpartes]
+exs = [np.array(x) for x in exs]
+comps = [np.array(x) for x in comps]
     
-ax_t.errorbar(xs, exs[0], exs[1], color=color_cycle[0], marker='.', fmt='--', lw=1, label="Total")
+ax_t.errorbar(xs, exs[0], [exs[0]-exs[1],exs[2]-exs[0]], color=color_cycle[0], marker='.', fmt='--', lw=1, label="Total")
 ax_t.bar(1, -2, color=color_cycle[1], label="Compute")
 
-ax_fli.errorbar(xs, FLIpartes[0], FLIpartes[1], color='k', linestyle='', label="FLI")
+ax_fli.errorbar(xs, FLIpartes[0], [FLIpartes[0]-FLIpartes[1], FLIpartes[2] - FLIpartes[0]], color='k', linestyle='', label="FLI")
 ax_fli.bar(xs, FLIpartes[0], color=color_cycle[2], width=0.4, label="$f_{li}$")
 for x,y in zip(xs, FLIpartes[0]):
     ax_fli.annotate(f'{y:.1f}', # this is the text
@@ -95,7 +103,7 @@ for x,y in zip(xs, FLIpartes[0]):
                      ha='center') # horizontal alignment can be left, right or center
 
 # ax_fli.errorbar(xs, FLIpartes[0], FLIpartes[1], color='r', fmt='', linestyle='')
-ax_p.errorbar(xs, Energy[0], Energy[1], color='k', linestyle='', label="FLI")
+ax_p.errorbar(xs, Energy[0], [Energy[0] - Energy[1], Energy[2] - Energy[0]], color='k', linestyle='', label="FLI")
 ax_p.bar(xs, Energy[0], color=color_cycle[3], width=0.4, label="")
 for x,y in zip(xs, Energy[0]):
     plt.annotate(f'{y:.0f}', # this is the text
@@ -112,13 +120,13 @@ for x,y in zip(xs, Energy[0]):
 # Put a legend to the right of the current axis
 # ax_t.legend(loc='center left', bbox_to_anchor=(1, 0.5), ncol=2)
 
-ax_t.legend(ncol=2)
+ax_t.legend(ncol=2, loc="upper left")
 # ax_p.set_xlabel("Run")
 ax_t.set_ylabel("Time [s]")
 ax_fli.set_ylabel("Imbalance [$f_{li}$]")
 ax_p.set_ylabel("Energy [kJ]")
 
-ax_t.set_ylim(0, 320)
+ax_t.set_ylim(0, 380)
 ax_p.set_ylim(0, 520)
 ax_fli.set_ylim(0, 2.2)
 # ax_fli.set_xticks(xs, ["Balanced", "Imbalanced", "Imbalanced-2.8GHz", "S1", "S2", "S3"])

@@ -102,16 +102,20 @@ for ff in xs:
 
 
     Energy[0].append(np.mean(energy) / 1000)
-    Energy[1].append(np.std(energy) / 1000)
+    Energy[1].append((np.min(energy) / 1000) - Energy[0])
+    Energy[2].append((np.max(energy) / 1000) - Energy[0])
     FLIpartes[0].append(np.mean(tmp_fli))
-    FLIpartes[1].append(np.std(tmp_fli))
+    FLIpartes[1].append(np.min(tmp_fli) - FLIpartes[0])
+    FLIpartes[2].append(np.max(tmp_fli) - FLIpartes[0])
     exs[0].append(np.mean(tmp_df['execution']['max']))
-    exs[1].append(np.std(tmp_df['execution']['max']))
+    exs[1].append(np.min(tmp_df['execution']['max']) - exs[0])
+    exs[2].append(np.max(tmp_df['execution']['max']) - exs[0])
     comps[0].append(np.mean(tmp_df['comp']['max']))
-    comps[1].append(np.std(tmp_df['comp']['max']))
+    comps[1].append(np.min(tmp_df['comp']['max'])- comps[0])
+    comps[2].append(np.max(tmp_df['comp']['max'])- comps[0])
     
     
-ax_t.errorbar(xs, exs[0], exs[1], color=color_cycle[0], label="total")
+ax_t.errorbar(xs, exs[0], yerr=[exs[1],exs[2]], color=color_cycle[0], label="total")
 ax_fli.errorbar(xs, FLIpartes[0], FLIpartes[1], color=color_cycle[3], label="FLI")
 ax_p.errorbar(xs, Energy[0], Energy[1], color=color_cycle[3], label="FLI")
 for x,y in zip(xs, Energy[0]):
